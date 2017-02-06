@@ -17,6 +17,7 @@
 		5736C9871E492B3300B22B11 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */; };
 		5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */; };
 		A3A6CA13EF767AE3AF4D4D12 /* Pods_EyeVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E604791D0468581F58FE13EC /* Pods_EyeVote.framework */; };
+		DF1F0AC81E49228A005EEE9C /* EyeVoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryDetailViewController.swift; sourceTree = "<group>"; };
 		D881F1A7352DF6BAF815CBC2 /* Pods-EyeVote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeVote.release.xcconfig"; path = "Pods/Target Support Files/Pods-EyeVote/Pods-EyeVote.release.xcconfig"; sourceTree = "<group>"; };
+		DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeVoteColor.swift; sourceTree = "<group>"; };
 		E604791D0468581F58FE13EC /* Pods_EyeVote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EyeVote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A1CCA4D5EA7130CA6A9D3C /* Pods-EyeVote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeVote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EyeVote/Pods-EyeVote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 		5736C96B1E48F09B00B22B11 /* EyeVote */ = {
 			isa = PBXGroup;
 			children = (
+				DF1F0AC61E492263005EEE9C /* UI */,
 				5736C9821E490BFB00B22B11 /* View Controller */,
 				5736C9831E490C1700B22B11 /* Supporting Files */,
 			);
@@ -138,6 +141,14 @@
 				D881F1A7352DF6BAF815CBC2 /* Pods-EyeVote.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF1F0AC61E492263005EEE9C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 				5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */,
 				5736C9851E491BEC00B22B11 /* UploadViewController.swift in Sources */,
 				5736C96F1E48F09B00B22B11 /* GalleryViewController.swift in Sources */,
+				DF1F0AC81E49228A005EEE9C /* EyeVoteColor.swift in Sources */,
 				5736C9811E48F61A00B22B11 /* LogInViewController.swift in Sources */,
 				5736C96D1E48F09B00B22B11 /* AppDelegate.swift in Sources */,
 			);

@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+      //merge conflicts
         let tabBarController = UITabBarController()
         let loginVC = LogInViewController()
         let galleryVC = GalleryViewController()
@@ -27,9 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user_icon"), tag: 0)
         galleryVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "gallery_icon"), tag: 1)
         uploadVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "camera_icon"), tag: 2)
+
+
+        navigationController.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.textIconColor]
+        navigationController.navigationBar.topItem?.title = "LOGIN/REGISTER"
+    
+
+      //merge conflicts^
+      
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
+        
         
         return true
     }
