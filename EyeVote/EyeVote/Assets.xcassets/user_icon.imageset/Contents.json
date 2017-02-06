@@ -2,13 +2,10 @@
   "images" : [
     {
       "idiom" : "universal",
-<<<<<<< HEAD
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-=======
->>>>>>> 66f5e30d738902f9c1254bcda9199951f47fd5ed
       "filename" : "user_icon@2x.png",
       "scale" : "2x"
     },
