@@ -31,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         uploadVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "camera_icon"), tag: 2)
 
 
-        navigationController.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.textIconColor]
-        navigationController.navigationBar.topItem?.title = "LOGIN/REGISTER"
+//        navigationController.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
+//        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.textIconColor]
+//        navigationController.navigationBar.topItem?.title = "LOGIN/REGISTER"
     
 
       //merge conflicts^
