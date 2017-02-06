@@ -17,7 +17,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = EveVoteColor.primaryColor
+        view.backgroundColor = EyeVoteColor.primaryColor
         setupView()
     }
 
@@ -36,7 +36,7 @@ class LogInViewController: UIViewController {
         let usernameTextField = UITextField()
         view.addSubview(usernameTextField)
         usernameTextField.text = "USERNAME"
-        usernameTextField.textColor = EveVoteColor.accentColor
+        usernameTextField.textColor = EyeVoteColor.accentColor
         usernameTextField.layer.borderColor = UIColor.black.cgColor
         usernameTextField.layer.borderWidth = 5
         usernameTextField.snp.makeConstraints({ (view) in
@@ -49,7 +49,7 @@ class LogInViewController: UIViewController {
         let passwordTextField = UITextField()
         view.addSubview(passwordTextField)
         passwordTextField.text = "PASSWORD"
-        passwordTextField.textColor = EveVoteColor.accentColor
+        passwordTextField.textColor = EyeVoteColor.accentColor
         passwordTextField.layer.borderColor = UIColor.black.cgColor
         passwordTextField.layer.borderWidth = 5
         passwordTextField.snp.makeConstraints({ (view) in
@@ -62,8 +62,8 @@ class LogInViewController: UIViewController {
         let registerButton = UIButton()
         view.addSubview(registerButton)
         registerButton.setTitle("REGISTER", for: .normal)
-        registerButton.setTitleColor(EveVoteColor.textIconColor, for: .normal)
-        registerButton.layer.borderColor = EveVoteColor.textIconColor.cgColor
+        registerButton.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
+        registerButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
         registerButton.layer.borderWidth = 5
         registerButton.snp.makeConstraints({ (view) in
             view.bottom.equalTo(self.view.snp.bottom).inset(20)
@@ -76,8 +76,8 @@ class LogInViewController: UIViewController {
         let loginButton = UIButton()
         view.addSubview(loginButton)
         loginButton.setTitle("LOG IN", for: .normal)
-        loginButton.setTitleColor(EveVoteColor.textIconColor, for: .normal)
-        loginButton.layer.borderColor = EveVoteColor.textIconColor.cgColor
+        loginButton.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
+        loginButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
         loginButton.layer.borderWidth = 5
         loginButton.snp.makeConstraints({ (view) in
             view.bottom.equalTo(self.view.snp.bottom).inset(70)

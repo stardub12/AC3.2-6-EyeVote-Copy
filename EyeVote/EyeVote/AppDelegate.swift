@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let rootVC = LogInViewController()
         let navigationController = UINavigationController(rootViewController: rootVC)
-        navigationController.navigationBar.barTintColor = EveVoteColor.darkPrimaryColor
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: EveVoteColor.textIconColor]
+        navigationController.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.textIconColor]
         navigationController.navigationBar.topItem?.title = "LOGIN/REGISTER"
     
         self.window = UIWindow(frame: UIScreen.main.bounds)
