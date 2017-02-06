@@ -2,10 +2,19 @@
   "images" : [
     {
       "idiom" : "universal",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b6a084025cee403e5666b73e2c6aaa58b71ad845
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 66f5e30d738902f9c1254bcda9199951f47fd5ed
+>>>>>>> b6a084025cee403e5666b73e2c6aaa58b71ad845
       "filename" : "up_arrow@2x.png",
       "scale" : "2x"
     },
