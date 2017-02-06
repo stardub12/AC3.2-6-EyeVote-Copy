@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="GhT-db-yzV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="GhT-db-yzV">
                                 <rect key="frame" x="116" y="262" width="143" height="143"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4J-BD-I6Q">
@@ -69,6 +69,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-1" width="143" height="143"/>
+        <image name="logo" width="143" height="143"/>
     </resources>
 </document>
