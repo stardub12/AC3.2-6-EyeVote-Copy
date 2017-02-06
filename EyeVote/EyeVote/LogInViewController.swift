@@ -89,7 +89,7 @@ class LogInViewController: UIViewController {
     }
     
     internal func tappedLoginButton(sender: UIButton) {
-        print("Log In Pressed")
+        print("Log In Pressed IMPORT FIREBASE AND STUFF")
     }
     
     internal func tappedRegisterButton(sender: UIButton) {
