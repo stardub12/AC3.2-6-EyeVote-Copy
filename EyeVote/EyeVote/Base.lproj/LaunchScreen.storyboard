@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Gai-VN-jvS">
+            <objects>
+                <navigationController id="utc-K9-p3N" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HPJ-yd-YCw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQj-lV-DjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-537" y="263"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
@@ -16,12 +33,42 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="GhT-db-yzV">
+                                <rect key="frame" x="116" y="262" width="143" height="143"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4J-BD-I6Q">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.28235294117647058" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jY-cA-kO6">
+                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
+                                <color key="backgroundColor" red="0.72156862745098038" green="0.77254901960784317" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30588235294117649" green="0.41568627450980394" blue="0.47843137254901963" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GhT-db-yzV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7zV-ju-MHP"/>
+                            <constraint firstItem="Z4J-BD-I6Q" firstAttribute="centerX" secondItem="GhT-db-yzV" secondAttribute="centerX" id="Rdz-CM-nOv"/>
+                            <constraint firstItem="Z4J-BD-I6Q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ZtP-10-aI5"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="0jY-cA-kO6" secondAttribute="bottom" id="az4-XN-ahb"/>
+                            <constraint firstAttribute="bottom" secondItem="Z4J-BD-I6Q" secondAttribute="bottom" constant="601" id="b1h-qk-zpU"/>
+                            <constraint firstItem="Z4J-BD-I6Q" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="etI-Ic-wRi"/>
+                            <constraint firstItem="Z4J-BD-I6Q" firstAttribute="trailing" secondItem="0jY-cA-kO6" secondAttribute="trailing" id="lUx-pF-Ghi"/>
+                            <constraint firstItem="GhT-db-yzV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qAQ-Da-CUj"/>
+                            <constraint firstItem="0jY-cA-kO6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="621" id="qSX-8W-LkU"/>
+                            <constraint firstItem="Z4J-BD-I6Q" firstAttribute="leading" secondItem="0jY-cA-kO6" secondAttribute="leading" id="xLl-F0-S8D"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="t9R-Le-dA5"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="1313" y="-208"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-1" width="143" height="143"/>
+    </resources>
 </document>
