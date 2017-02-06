@@ -11,8 +11,11 @@
 		5736C96F1E48F09B00B22B11 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C96E1E48F09B00B22B11 /* GalleryViewController.swift */; };
 		5736C9741E48F09B00B22B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5736C9731E48F09B00B22B11 /* Assets.xcassets */; };
 		5736C9771E48F09B00B22B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5736C9751E48F09B00B22B11 /* LaunchScreen.storyboard */; };
-		5736C97F1E48F57F00B22B11 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C97E1E48F57F00B22B11 /* TableViewCell.swift */; };
+		5736C97F1E48F57F00B22B11 /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C97E1E48F57F00B22B11 /* GalleryTableViewCell.swift */; };
 		5736C9811E48F61A00B22B11 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9801E48F61A00B22B11 /* LogInViewController.swift */; };
+		5736C9851E491BEC00B22B11 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9841E491BEC00B22B11 /* UploadViewController.swift */; };
+		5736C9871E492B3300B22B11 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */; };
+		5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */; };
 		A3A6CA13EF767AE3AF4D4D12 /* Pods_EyeVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E604791D0468581F58FE13EC /* Pods_EyeVote.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +26,11 @@
 		5736C9731E48F09B00B22B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5736C9761E48F09B00B22B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5736C9781E48F09B00B22B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5736C97E1E48F57F00B22B11 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		5736C97E1E48F57F00B22B11 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
 		5736C9801E48F61A00B22B11 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5736C9841E491BEC00B22B11 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryDetailViewController.swift; sourceTree = "<group>"; };
 		D881F1A7352DF6BAF815CBC2 /* Pods-EyeVote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeVote.release.xcconfig"; path = "Pods/Target Support Files/Pods-EyeVote/Pods-EyeVote.release.xcconfig"; sourceTree = "<group>"; };
 		E604791D0468581F58FE13EC /* Pods_EyeVote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EyeVote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A1CCA4D5EA7130CA6A9D3C /* Pods-EyeVote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeVote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EyeVote/Pods-EyeVote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,9 +78,9 @@
 		5736C9821E490BFB00B22B11 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5736C9801E48F61A00B22B11 /* LogInViewController.swift */,
-				5736C96E1E48F09B00B22B11 /* GalleryViewController.swift */,
-				5736C97E1E48F57F00B22B11 /* TableViewCell.swift */,
+				5736C98A1E492B8000B22B11 /* Gallery */,
+				5736C98B1E492B8800B22B11 /* Upload */,
+				5736C98C1E492B8E00B22B11 /* Login */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -88,6 +94,33 @@
 				5736C9781E48F09B00B22B11 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5736C98A1E492B8000B22B11 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				5736C96E1E48F09B00B22B11 /* GalleryViewController.swift */,
+				5736C97E1E48F57F00B22B11 /* GalleryTableViewCell.swift */,
+				5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */,
+				5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */,
+			);
+			name = Gallery;
+			sourceTree = "<group>";
+		};
+		5736C98B1E492B8800B22B11 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				5736C9841E491BEC00B22B11 /* UploadViewController.swift */,
+			);
+			name = Upload;
+			sourceTree = "<group>";
+		};
+		5736C98C1E492B8E00B22B11 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5736C9801E48F61A00B22B11 /* LogInViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		58EC16B529948C5059D0F494 /* Frameworks */ = {
@@ -229,7 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5736C97F1E48F57F00B22B11 /* TableViewCell.swift in Sources */,
+				5736C97F1E48F57F00B22B11 /* GalleryTableViewCell.swift in Sources */,
+				5736C9871E492B3300B22B11 /* GalleryCollectionViewController.swift in Sources */,
+				5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */,
+				5736C9851E491BEC00B22B11 /* UploadViewController.swift in Sources */,
 				5736C96F1E48F09B00B22B11 /* GalleryViewController.swift in Sources */,
 				5736C9811E48F61A00B22B11 /* LogInViewController.swift in Sources */,
 				5736C96D1E48F09B00B22B11 /* AppDelegate.swift in Sources */,

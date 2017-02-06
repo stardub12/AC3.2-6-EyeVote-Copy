@@ -14,6 +14,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //navigationController?.title = "LOGIN/REGISTER"
         view.backgroundColor = UIColor.white
         setupView()
     }
@@ -30,11 +31,7 @@ class LogInViewController: UIViewController {
             view.top.equalTo(130)
         })
         
-        let usernameTextField = UITextField()
         view.addSubview(usernameTextField)
-        usernameTextField.text = "USERNAME"
-        usernameTextField.layer.borderColor = UIColor.black.cgColor
-        usernameTextField.layer.borderWidth = 5
         usernameTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(imageView.snp.bottom).offset(20)
             view.centerX.equalTo(self.view)
@@ -42,11 +39,7 @@ class LogInViewController: UIViewController {
             view.height.equalTo(44)
         })
         
-        let passwordTextField = UITextField()
         view.addSubview(passwordTextField)
-        passwordTextField.text = "PASSWORD"
-        passwordTextField.layer.borderColor = UIColor.black.cgColor
-        passwordTextField.layer.borderWidth = 5
         passwordTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(usernameTextField.snp.bottom).offset(20)
             view.centerX.equalTo(self.view)
@@ -61,7 +54,7 @@ class LogInViewController: UIViewController {
         registerButton.layer.borderColor = UIColor.black.cgColor
         registerButton.layer.borderWidth = 5
         registerButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(20)
+            view.bottom.equalTo(self.view.snp.bottom).inset(70)
             view.width.equalTo(150)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
@@ -75,7 +68,7 @@ class LogInViewController: UIViewController {
         loginButton.layer.borderColor = UIColor.black.cgColor
         loginButton.layer.borderWidth = 5
         loginButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(70)
+            view.bottom.equalTo(self.view.snp.bottom).inset(120)
             view.width.equalTo(150)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
@@ -85,9 +78,26 @@ class LogInViewController: UIViewController {
     
     internal func tappedLoginButton(sender: UIButton) {
         print("Log In Pressed")
+        
     }
     
     internal func tappedRegisterButton(sender: UIButton) {
         print("Register pressed")
     }
+    
+    internal lazy var usernameTextField: UITextField = {
+        let textField = UITextField()
+        textField.text = "USERNAME"
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 5
+        return textField
+    }()
+    
+    internal lazy var passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.text = "PASSWORD"
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 5
+        return textField
+    }()
 }

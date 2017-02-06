@@ -16,10 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let rootVC = LogInViewController()
-        let navigationController = UINavigationController(rootViewController: rootVC)
+        let tabBarController = UITabBarController()
+        let loginVC = LogInViewController()
+        let galleryVC = GalleryViewController()
+        let uploadVC = UploadViewController()
+        let navController1 = UINavigationController(rootViewController: galleryVC)
+        let navController2 = UINavigationController(rootViewController: uploadVC)
+        let navController3 = UINavigationController(rootViewController: loginVC)
+        tabBarController.viewControllers = [navController1, navController2, navController3]
+        loginVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user_icon"), tag: 0)
+        galleryVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "gallery_icon"), tag: 1)
+        uploadVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "camera_icon"), tag: 2)
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         
         return true
