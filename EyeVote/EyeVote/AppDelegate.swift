@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let rootVC = LogInViewController()
         let navigationController = UINavigationController(rootViewController: rootVC)
+        navigationController.navigationBar.barTintColor = EveVoteColor.darkPrimaryColor
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
+        
         
         return true
     }
