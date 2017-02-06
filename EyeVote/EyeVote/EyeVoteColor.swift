@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct EveVoteColor {
+struct EyeVoteColor {
     
     static let textIconColor: UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
     static let primaryColor = UIColor(red:0.38, green:0.49, blue:0.55, alpha:1.0)
