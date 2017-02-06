@@ -16,14 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let rootVC = LogInViewController()
-        let navigationController = UINavigationController(rootViewController: rootVC)
+
+      //merge conflicts
+        let tabBarController = UITabBarController()
+        let loginVC = LogInViewController()
+        let galleryVC = GalleryViewController()
+        let uploadVC = UploadViewController()
+        let navController1 = UINavigationController(rootViewController: galleryVC)
+        let navController2 = UINavigationController(rootViewController: uploadVC)
+        let navController3 = UINavigationController(rootViewController: loginVC)
+        tabBarController.viewControllers = [navController1, navController2, navController3]
+        loginVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user_icon"), tag: 0)
+        galleryVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "gallery_icon"), tag: 1)
+        uploadVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "camera_icon"), tag: 2)
+
+
         navigationController.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.textIconColor]
         navigationController.navigationBar.topItem?.title = "LOGIN/REGISTER"
     
+
+      //merge conflicts^
+      
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
         
         

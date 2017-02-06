@@ -8,18 +8,42 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController, UITableViewDelegate {
+class GalleryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        title = "Categories"
+        //navigationController?.title = "Categories"
+        setupViews()
     }
 
     func setupViews() {
-        
+        var categoryTableView = UITableView()
+        categoryTableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
+        categoryTableView.delegate = self
+        categoryTableView.dataSource = self
+        categoryTableView.estimatedRowHeight = 200
+        categoryTableView.rowHeight = UITableViewAutomaticDimension
+        categoryTableView.register(GalleryTableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.view.addSubview(categoryTableView)
     }
-
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! GalleryTableViewCell
+        
+        cell.categoryLabel.text = "TEST"
+        cell.categoryLabel.textAlignment = .center
+        
+        return cell
+    }
 
 }
 
