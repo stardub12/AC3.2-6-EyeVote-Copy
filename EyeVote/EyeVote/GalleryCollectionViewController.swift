@@ -11,6 +11,12 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class GalleryCollectionViewController: UICollectionViewController {
+    
+    let layout: UICollectionViewFlowLayout = {
+        let lo = UICollectionViewFlowLayout()
+        lo.scrollDirection = .vertical
+        return lo
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +30,8 @@ class GalleryCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupViews(){
+        
     }
 
     /*
@@ -43,14 +48,14 @@ class GalleryCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return 4 //temp count
     }
+    
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
@@ -59,6 +64,12 @@ class GalleryCollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/3)
+    }
+    
+
 
     // MARK: UICollectionViewDelegate
 
