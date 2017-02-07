@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
         view.backgroundColor = EyeVoteColor.primaryColor
         setupViewHierarchy()
         configureConstraints()
-        buttonTapped()
+        gesturesAndControl()
     }
     
     // MARK: - Setup
@@ -74,7 +74,7 @@ class LogInViewController: UIViewController {
     }
     
     // MARK: - Actions
-    func buttonTapped() {
+    func gesturesAndControl() {
         registerButton.addTarget(self, action: #selector(tappedRegisterButton(sender:)), for: .touchUpInside)
         
         loginButton.addTarget(self, action: #selector(tappedLoginButton(sender:)), for: .touchUpInside)
