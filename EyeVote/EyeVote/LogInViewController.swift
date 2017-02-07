@@ -72,8 +72,8 @@ class LogInViewController: UIViewController {
         registerButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
         registerButton.layer.borderWidth = 0.8
         registerButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(35)
-            view.width.equalTo(150)
+            view.bottom.equalTo(self.view.snp.bottom).inset(20)
+            view.width.equalTo(270)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
         })
@@ -86,8 +86,8 @@ class LogInViewController: UIViewController {
         loginButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
         loginButton.layer.borderWidth = 0.8
         loginButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(85)
-            view.width.equalTo(150)
+            view.bottom.equalTo(self.view.snp.bottom).inset(75)
+            view.width.equalTo(270)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
         })
