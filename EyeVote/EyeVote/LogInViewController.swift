@@ -45,7 +45,7 @@ class LogInViewController: UIViewController {
         usernameTextField.layer.borderWidth = 5
 
         usernameTextField.snp.makeConstraints({ (view) in
-            view.top.equalTo(imageView.snp.bottom).offset(20)
+            view.top.equalTo(imageView.snp.bottom).offset(40)
             view.centerX.equalTo(self.view)
             view.width.equalToSuperview().multipliedBy(0.8)
             view.height.equalTo(44)
@@ -70,7 +70,7 @@ class LogInViewController: UIViewController {
         registerButton.setTitle("REGISTER", for: .normal)
         registerButton.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
         registerButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
-        registerButton.layer.borderWidth = 5
+        registerButton.layer.borderWidth = 0.8
         registerButton.snp.makeConstraints({ (view) in
             view.bottom.equalTo(self.view.snp.bottom).inset(35)
             view.width.equalTo(150)
@@ -84,7 +84,7 @@ class LogInViewController: UIViewController {
         loginButton.setTitle("LOG IN", for: .normal)
         loginButton.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
         loginButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
-        loginButton.layer.borderWidth = 5
+        loginButton.layer.borderWidth = 0.8
         loginButton.snp.makeConstraints({ (view) in
             view.bottom.equalTo(self.view.snp.bottom).inset(85)
             view.width.equalTo(150)
