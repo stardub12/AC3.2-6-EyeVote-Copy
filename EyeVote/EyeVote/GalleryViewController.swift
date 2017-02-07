@@ -12,8 +12,7 @@ class GalleryViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //navigationController?.title = "Categories"
+
         setupViews()
     }
 
@@ -22,8 +21,7 @@ class GalleryViewController: UIViewController, UITableViewDelegate, UITableViewD
         categoryTableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
-        categoryTableView.estimatedRowHeight = 200
-        categoryTableView.rowHeight = UITableViewAutomaticDimension
+        categoryTableView.rowHeight = 200
         categoryTableView.register(GalleryTableViewCell.self, forCellReuseIdentifier: "Cell")
         self.view.addSubview(categoryTableView)
     }

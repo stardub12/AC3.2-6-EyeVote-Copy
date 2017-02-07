@@ -25,7 +25,7 @@ class LogInViewController: UIViewController {
     }
 
     func setupView() {
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.edgesForExtendedLayout = []
         
         let imageView = UIImageView()
         view.addSubview(imageView)
@@ -33,7 +33,7 @@ class LogInViewController: UIViewController {
         imageView.snp.makeConstraints({ (view) in
             view.centerX.equalTo(self.view)
             view.width.height.equalTo(150)
-            view.top.equalTo(130)
+            view.top.equalToSuperview().offset(10)
         })
         
         view.addSubview(usernameTextField)
@@ -72,7 +72,7 @@ class LogInViewController: UIViewController {
         registerButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
         registerButton.layer.borderWidth = 5
         registerButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(70)
+            view.bottom.equalTo(self.view.snp.bottom).inset(35)
             view.width.equalTo(150)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
@@ -86,7 +86,7 @@ class LogInViewController: UIViewController {
         loginButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
         loginButton.layer.borderWidth = 5
         loginButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(120)
+            view.bottom.equalTo(self.view.snp.bottom).inset(85)
             view.width.equalTo(150)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
