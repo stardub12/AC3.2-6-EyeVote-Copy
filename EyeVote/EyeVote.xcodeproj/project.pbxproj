@@ -16,6 +16,11 @@
 		5736C9851E491BEC00B22B11 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9841E491BEC00B22B11 /* UploadViewController.swift */; };
 		5736C9871E492B3300B22B11 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */; };
 		5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */; };
+		57D2F5711E4A3B2900A86CCD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D2F5701E4A3B2900A86CCD /* Info.plist */; };
+		57D2F5731E4A3BB800A86CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D2F5721E4A3BB800A86CCD /* GoogleService-Info.plist */; };
+		57D2F5751E4A3EFC00A86CCD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2F5741E4A3EFC00A86CCD /* ProfileViewController.swift */; };
+		57D2F5771E4A43FC00A86CCD /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2F5761E4A43FC00A86CCD /* ProfileTableViewCell.swift */; };
+		57D2F5791E4A58E900A86CCD /* UploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2F5781E4A58E900A86CCD /* UploadCollectionViewCell.swift */; };
 		A3A6CA13EF767AE3AF4D4D12 /* Pods_EyeVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E604791D0468581F58FE13EC /* Pods_EyeVote.framework */; };
 		DF1F0AC81E49228A005EEE9C /* EyeVoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */; };
 /* End PBXBuildFile section */
@@ -26,12 +31,16 @@
 		5736C96E1E48F09B00B22B11 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		5736C9731E48F09B00B22B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5736C9761E48F09B00B22B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5736C9781E48F09B00B22B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5736C97E1E48F57F00B22B11 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
 		5736C9801E48F61A00B22B11 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5736C9841E491BEC00B22B11 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		5736C9861E492B3300B22B11 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		5736C9881E492B5F00B22B11 /* GalleryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryDetailViewController.swift; sourceTree = "<group>"; };
+		57D2F5701E4A3B2900A86CCD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57D2F5721E4A3BB800A86CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		57D2F5741E4A3EFC00A86CCD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		57D2F5761E4A43FC00A86CCD /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		57D2F5781E4A58E900A86CCD /* UploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadCollectionViewCell.swift; sourceTree = "<group>"; };
 		D881F1A7352DF6BAF815CBC2 /* Pods-EyeVote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeVote.release.xcconfig"; path = "Pods/Target Support Files/Pods-EyeVote/Pods-EyeVote.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeVoteColor.swift; sourceTree = "<group>"; };
 		E604791D0468581F58FE13EC /* Pods_EyeVote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EyeVote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +103,8 @@
 				5736C96C1E48F09B00B22B11 /* AppDelegate.swift */,
 				5736C9731E48F09B00B22B11 /* Assets.xcassets */,
 				5736C9751E48F09B00B22B11 /* LaunchScreen.storyboard */,
-				5736C9781E48F09B00B22B11 /* Info.plist */,
+				57D2F5701E4A3B2900A86CCD /* Info.plist */,
+				57D2F5721E4A3BB800A86CCD /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				5736C9801E48F61A00B22B11 /* LogInViewController.swift */,
+				57D2F5741E4A3EFC00A86CCD /* ProfileViewController.swift */,
+				57D2F5761E4A43FC00A86CCD /* ProfileTableViewCell.swift */,
+				57D2F5781E4A58E900A86CCD /* UploadCollectionViewCell.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -213,6 +226,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D2F5711E4A3B2900A86CCD /* Info.plist in Resources */,
+				57D2F5731E4A3BB800A86CCD /* GoogleService-Info.plist in Resources */,
 				5736C9771E48F09B00B22B11 /* LaunchScreen.storyboard in Resources */,
 				5736C9741E48F09B00B22B11 /* Assets.xcassets in Resources */,
 			);
@@ -276,9 +291,12 @@
 				5736C97F1E48F57F00B22B11 /* GalleryTableViewCell.swift in Sources */,
 				5736C9871E492B3300B22B11 /* GalleryCollectionViewController.swift in Sources */,
 				5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */,
+				57D2F5771E4A43FC00A86CCD /* ProfileTableViewCell.swift in Sources */,
 				5736C9851E491BEC00B22B11 /* UploadViewController.swift in Sources */,
+				57D2F5791E4A58E900A86CCD /* UploadCollectionViewCell.swift in Sources */,
 				5736C96F1E48F09B00B22B11 /* GalleryViewController.swift in Sources */,
 				DF1F0AC81E49228A005EEE9C /* EyeVoteColor.swift in Sources */,
+				57D2F5751E4A3EFC00A86CCD /* ProfileViewController.swift in Sources */,
 				5736C9811E48F61A00B22B11 /* LogInViewController.swift in Sources */,
 				5736C96D1E48F09B00B22B11 /* AppDelegate.swift in Sources */,
 			);

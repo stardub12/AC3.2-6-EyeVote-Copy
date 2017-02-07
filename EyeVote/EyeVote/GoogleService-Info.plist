@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>276064487605-23s6hpv521l01uae4uqve65ds77eokek.apps.googleusercontent.com</string>
+	<string>598116381457-mkmtbjp8qk6regkc8eia2pjgrstkqekk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.276064487605-23s6hpv521l01uae4uqve65ds77eokek</string>
+	<string>com.googleusercontent.apps.598116381457-mkmtbjp8qk6regkc8eia2pjgrstkqekk</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDeQrIXz_zSBGYbswjhjLjooHYmHfILVHU</string>
+	<string>AIzaSyDG1elIGngfnOwXLolQ5j63QlumT_n3yZI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>276064487605</string>
+	<string>598116381457</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>sim.EyeVote</string>
+	<string>C4Q.EyeVote</string>
 	<key>PROJECT_ID</key>
-	<string>eyevote-3f1e8</string>
+	<string>eyevote-1c488</string>
 	<key>STORAGE_BUCKET</key>
-	<string>eyevote-3f1e8.appspot.com</string>
+	<string>eyevote-1c488.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:276064487605:ios:1266fc62f3afd691</string>
+	<string>1:598116381457:ios:6dce2300547556a3</string>
 	<key>DATABASE_URL</key>
-	<string>https://eyevote-3f1e8.firebaseio.com</string>
+	<string>https://eyevote-1c488.firebaseio.com</string>
 </dict>
 </plist>
