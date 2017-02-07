@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navController2 = UINavigationController(rootViewController: uploadVC)
         let navController3 = UINavigationController(rootViewController: loginVC)
         tabBarController.viewControllers = [navController1, navController2, navController3]
+        UITabBar.appearance().tintColor = EyeVoteColor
+        .accentColor
         loginVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user_icon"), tag: 0)
         galleryVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "gallery_icon"), tag: 1)
         uploadVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "camera_icon"), tag: 2)
@@ -40,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navController3.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
         navController3.navigationBar.topItem?.title = "LOGIN/REGISTER"
+        
     
 
       //merge conflicts^
