@@ -8,10 +8,11 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
-class LogInViewController: UIViewController {
-    
-    // MARK: - View Lifecycle
+class LogInViewController: UIViewController {    
+   
+  // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = EyeVoteColor.primaryColor
@@ -38,7 +39,7 @@ class LogInViewController: UIViewController {
             view.width.height.equalTo(150)
             view.top.equalToSuperview().offset(10)
         })
-        
+      
         // UserName TextField
         usernameTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(logo.snp.bottom).offset(40)
@@ -46,7 +47,7 @@ class LogInViewController: UIViewController {
             view.width.equalToSuperview().multipliedBy(0.8)
             view.height.equalTo(44)
         })
-        
+      
         //Password TextField
         passwordTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(usernameTextField.snp.bottom).offset(20)
@@ -80,12 +81,63 @@ class LogInViewController: UIViewController {
     }
     
     internal func tappedLoginButton(sender: UIButton) {
+
         print("Log In Pressed IMPORT FIREBASE AND STUFF")
+ 
+        guard let userName = usernameTextField.text, let password = passwordTextField.text else {
+            print("cannot validate username/password")
+            return
+        }
         
+        FIRAuth.auth()?.signIn(withEmail: userName, password: password, completion: { (user, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            if user != nil {
+                print("signed in")
+            } else {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
+
     }
     
     internal func tappedRegisterButton(sender: UIButton) {
         print("Register pressed")
+        guard let userName = usernameTextField.text, let password = passwordTextField.text else {
+            print("cannot validate username/password")
+            return
+        }
+        
+        FIRAuth.auth()?.createUser(withEmail: userName, password: password, completion: { (user: FIRUser?, error) in
+            
+            guard let uid = user?.uid else { return }
+            
+            let reference = FIRDatabase.database().reference(fromURL: "https://eyevote-3f1e8.firebaseio.com/")
+            let userReference = reference.child("users").child(uid)
+            let login = ["userName": userName, "password": password]
+            userReference.updateChildValues(login, withCompletionBlock: { (error, reference) in
+                
+                guard let error = error else {
+                    print("Error detected")
+                    return
+                }
+                if let user = user {
+                    print("Got \(user.email)")
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        })
     }
     
     // MARK: - Lazy Init
@@ -97,6 +149,7 @@ class LogInViewController: UIViewController {
     
     internal lazy var usernameTextField: UITextField = {
         let textField = UITextField()
+
         textField.textColor = EyeVoteColor.textIconColor
         textField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName : EyeVoteColor.accentColor ])
         textField.layer.borderColor = UIColor.black.cgColor
@@ -106,6 +159,7 @@ class LogInViewController: UIViewController {
     
     internal lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+
         textField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName : EyeVoteColor.accentColor ])
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 5
