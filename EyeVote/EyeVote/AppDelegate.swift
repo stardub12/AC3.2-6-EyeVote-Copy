@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.primaryText]
     
 
-      //merge conflicts^
+      //TEST
       
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = tabBarController
