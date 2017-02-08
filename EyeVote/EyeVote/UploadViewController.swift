@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
-class UploadViewController: UIViewController {
-
+class UploadViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    var progressView: UIProgressView!
+    var progressLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,6 +74,99 @@ class UploadViewController: UIViewController {
     
     func uploadButtonPressed() {
         
-    }
+        self.view.addSubview(backgroundDimmer)
+        backgroundDimmer.addSubview(progressContainer)
+        
+        progressView = UIProgressView(progressViewStyle: .default)
+        progressView.center = self.progressContainer.center
+        progressContainer.addSubview(progressView!)
+        
+        progressLabel = UILabel()
+        let frame = CGRect(x: progressContainer.center.x, y: progressContainer.center.y, width: 100, height: 50)
+        progressLabel.frame = frame
+        progressView.addSubview(progressLabel!)
 
-}
+    }
+    
+    func updateProgress() {
+        progressView?.progress += 0.05
+        let progressValue = self.progressView?.progress
+        progressLabel?.text = "\(progressValue! * 100) %"
+    }
+    
+    //MARK: - UICollectionView
+    
+    private let reuseId = "cellID"
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = UIColor.white
+        return cv
+    }()
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     
+        return CGSize(width: 1, height: 1) //placeholder values
+    }
+    
+    //MARK:- Controls
+    
+    internal lazy var progressContainer: UIView = {
+        let pc: UIView = UIView()
+        pc.backgroundColor = EyeVoteColor.primaryColor
+        return pc
+    }()
+    
+    internal lazy var backgroundDimmer: UIView = {
+        let view: UIView = UIView()
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.2
+        return view
+    }()
+    
+    //add gestures to the progress container
+    func addGestures() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tap.numberOfTapsRequired = 1
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
+        doubleTap.numberOfTapsRequired = 2
+        
+        progressContainer.addGestureRecognizer(tap)
+        progressContainer.addGestureRecognizer(doubleTap)
+        tap.require(toFail: doubleTap)
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .began {
+            progressLabel.text = "Progress Paused"
+            progressView.progressTintColor = UIColor.red
+            
+        }
+
+    }
+    
+    func handleDoubleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .began {
+             progressView.progress = 0
+            progressLabel.text = "Upload Cancelled"
+        }
+    }
+    
+  }

@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
 
       //merge conflicts
         let tabBarController = UITabBarController()
@@ -25,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let galleryVC = GalleryViewController()
         let uploadVC = UploadViewController()
         let navController1 = UINavigationController(rootViewController: galleryVC)
+        navController1.navigationBar.barTintColor = UIColor.white
         let navController2 = UINavigationController(rootViewController: uploadVC)
         let navController3 = UINavigationController(rootViewController: loginVC)
         tabBarController.viewControllers = [navController1, navController2, navController3]
@@ -44,14 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navController3.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
         navController3.navigationBar.topItem?.title = "LOGIN/REGISTER"
-        
     
 
       //merge conflicts^
       
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = tabBarController
-        self.window?.makeKeyAndVisible()
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.makeKeyAndVisible()
+//        
+//        //Test CollectionView
+//        self.window?.rootViewController = GalleryCollectionViewController()
+        
         
         
         return true
