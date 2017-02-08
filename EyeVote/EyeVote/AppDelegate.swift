@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       //merge conflicts
         let tabBarController = UITabBarController()
-        let loginVC = LogInViewController()
+        let loginVC = ProfileViewController()
         let galleryVC = GalleryViewController()
         let uploadVC = UploadViewController()
         let navController1 = UINavigationController(rootViewController: galleryVC)
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navController3.navigationBar.topItem?.title = "LOGIN/REGISTER"
     
 
-      //merge conflicts^
+      //TEST
       
 //        self.window = UIWindow(frame: UIScreen.main.bounds)
 //        self.window?.makeKeyAndVisible()
