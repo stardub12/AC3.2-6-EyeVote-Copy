@@ -8,56 +8,47 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
-class LogInViewController: UIViewController {
-
-
+class LogInViewController: UIViewController {    
    
-    
+  // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        //navigationController?.title = "LOGIN/REGISTER"
         view.backgroundColor = EyeVoteColor.primaryColor
-
-        setupView()
+        setupViewHierarchy()
+        configureConstraints()
+        gesturesAndControl()
     }
-
-    func setupView() {
-        self.automaticallyAdjustsScrollViewInsets = false
+    
+    // MARK: - Setup
+    func setupViewHierarchy() {
+        self.view.addSubview(logo)
+        self.view.addSubview(usernameTextField)
+        self.view.addSubview(passwordTextField)
+        self.view.addSubview(loginButton)
+        self.view.addSubview(registerButton)
+    }
+    
+    private func configureConstraints(){
+        self.edgesForExtendedLayout = []
         
-        let imageView = UIImageView()
-        view.addSubview(imageView)
-        imageView.image = #imageLiteral(resourceName: "logo")
-        imageView.snp.makeConstraints({ (view) in
+        // Logo
+        logo.snp.makeConstraints({ (view) in
             view.centerX.equalTo(self.view)
             view.width.height.equalTo(150)
-            view.top.equalTo(130)
+            view.top.equalToSuperview().offset(10)
         })
-        
-        view.addSubview(usernameTextField)
-
-
-        usernameTextField.text = "USERNAME"
-        usernameTextField.textColor = EyeVoteColor.accentColor
-        usernameTextField.layer.borderColor = UIColor.black.cgColor
-        usernameTextField.layer.borderWidth = 5
-
+      
+        // UserName TextField
         usernameTextField.snp.makeConstraints({ (view) in
-            view.top.equalTo(imageView.snp.bottom).offset(20)
+            view.top.equalTo(logo.snp.bottom).offset(40)
             view.centerX.equalTo(self.view)
             view.width.equalToSuperview().multipliedBy(0.8)
             view.height.equalTo(44)
         })
-        
-        view.addSubview(passwordTextField)
-
-        passwordTextField.text = "PASSWORD"
-        passwordTextField.textColor = EyeVoteColor.accentColor
-        passwordTextField.layer.borderColor = UIColor.black.cgColor
-        passwordTextField.layer.borderWidth = 5
-
+      
+        //Password TextField
         passwordTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(usernameTextField.snp.bottom).offset(20)
             view.centerX.equalTo(self.view)
@@ -65,48 +56,102 @@ class LogInViewController: UIViewController {
             view.height.equalTo(44)
         })
         
-        let registerButton = UIButton()
-        view.addSubview(registerButton)
-        registerButton.setTitle("REGISTER", for: .normal)
-        registerButton.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
-        registerButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
-        registerButton.layer.borderWidth = 5
-        registerButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(70)
-            view.width.equalTo(150)
+        // Login Button
+        loginButton.snp.makeConstraints({ (view) in
+            view.bottom.equalTo(self.view.snp.bottom).inset(75)
+            view.width.equalTo(270)
             view.height.equalTo(44)
             view.centerX.equalTo(self.view.snp.centerX)
         })
+        
+        // Register Button
+        registerButton.snp.makeConstraints({ (view) in
+            view.bottom.equalTo(self.view.snp.bottom).inset(20)
+            view.width.equalTo(270)
+            view.height.equalTo(44)
+            view.centerX.equalTo(self.view.snp.centerX)
+        })
+    }
+    
+    // MARK: - Actions
+    func gesturesAndControl() {
         registerButton.addTarget(self, action: #selector(tappedRegisterButton(sender:)), for: .touchUpInside)
         
-        let loginButton = UIButton()
-        view.addSubview(loginButton)
-        loginButton.setTitle("LOG IN", for: .normal)
-        loginButton.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
-        loginButton.layer.borderColor = EyeVoteColor.textIconColor.cgColor
-        loginButton.layer.borderWidth = 5
-        loginButton.snp.makeConstraints({ (view) in
-            view.bottom.equalTo(self.view.snp.bottom).inset(120)
-            view.width.equalTo(150)
-            view.height.equalTo(44)
-            view.centerX.equalTo(self.view.snp.centerX)
-        })
         loginButton.addTarget(self, action: #selector(tappedLoginButton(sender:)), for: .touchUpInside)
     }
     
     internal func tappedLoginButton(sender: UIButton) {
 
         print("Log In Pressed IMPORT FIREBASE AND STUFF")
+ 
+        guard let userName = usernameTextField.text, let password = passwordTextField.text else {
+            print("cannot validate username/password")
+            return
+        }
+        
+        FIRAuth.auth()?.signIn(withEmail: userName, password: password, completion: { (user, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            if user != nil {
+                print("signed in")
+            } else {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
 
     }
     
     internal func tappedRegisterButton(sender: UIButton) {
         print("Register pressed")
+        guard let userName = usernameTextField.text, let password = passwordTextField.text else {
+            print("cannot validate username/password")
+            return
+        }
+        
+        FIRAuth.auth()?.createUser(withEmail: userName, password: password, completion: { (user: FIRUser?, error) in
+            
+            guard let uid = user?.uid else { return }
+            
+            let reference = FIRDatabase.database().reference(fromURL: "https://eyevote-3f1e8.firebaseio.com/")
+            let userReference = reference.child("users").child(uid)
+            let login = ["userName": userName, "password": password]
+            userReference.updateChildValues(login, withCompletionBlock: { (error, reference) in
+                
+                guard let error = error else {
+                    print("Error detected")
+                    return
+                }
+                if let user = user {
+                    print("Got \(user.email)")
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        })
     }
+    
+    // MARK: - Lazy Init
+    internal lazy var logo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "logo")
+        return imageView
+    }()
     
     internal lazy var usernameTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "USERNAME"
+
+        textField.textColor = EyeVoteColor.textIconColor
+        textField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName : EyeVoteColor.accentColor ])
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 5
         return textField
@@ -114,9 +159,29 @@ class LogInViewController: UIViewController {
     
     internal lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "PASSWORD"
+
+        textField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName : EyeVoteColor.accentColor ])
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 5
+        textField.textColor = EyeVoteColor.textIconColor
         return textField
+    }()
+    
+    internal lazy var loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("LOG IN", for: .normal)
+        button.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
+        button.layer.borderColor = EyeVoteColor.textIconColor.cgColor
+        button.layer.borderWidth = 0.8
+        return button
+    }()
+    
+    internal lazy var registerButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("REGISTER", for: .normal)
+        button.setTitleColor(EyeVoteColor.textIconColor, for: .normal)
+        button.layer.borderColor = EyeVoteColor.textIconColor.cgColor
+        button.layer.borderWidth = 0.8
+        return button
     }()
 }
