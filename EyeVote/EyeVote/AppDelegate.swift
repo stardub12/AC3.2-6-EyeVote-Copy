@@ -47,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navController3.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
         navController3.navigationBar.topItem?.title = "LOGIN/REGISTER"
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.primaryText]
     
 
       //TEST
