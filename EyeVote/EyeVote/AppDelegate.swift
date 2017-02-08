@@ -27,16 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let galleryVC = GalleryViewController()
         let uploadVC = UploadViewController()
         let navController1 = UINavigationController(rootViewController: galleryVC)
-        navController1.navigationBar.barTintColor = UIColor.white
         let navController2 = UINavigationController(rootViewController: uploadVC)
         let navController3 = UINavigationController(rootViewController: loginVC)
         tabBarController.viewControllers = [navController1, navController2, navController3]
         UITabBar.appearance().tintColor = EyeVoteColor
-        .accentColor
+            .accentColor
         loginVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "user_icon"), tag: 0)
         galleryVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "gallery_icon"), tag: 1)
         uploadVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "camera_icon"), tag: 2)
-
+        
         tabBarController.tabBar.barTintColor = EyeVoteColor.lightPrimaryColor
         
         navController1.navigationBar.barTintColor = EyeVoteColor.darkPrimaryColor
@@ -51,16 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: EyeVoteColor.primaryText]
-    
-
-      //TEST
-      
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window?.makeKeyAndVisible()
-//        
-//        //Test CollectionView
-//        self.window?.rootViewController = GalleryCollectionViewController()
         
+        
+        //TEST
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = tabBarController
+        self.window?.makeKeyAndVisible()
         
         
         return true

@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import Firebase
 
-class LogInViewController: UIViewController {    
-   
-  // MARK: - View Lifecycle
+class LogInViewController: UIViewController {
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = EyeVoteColor.primaryColor
@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
             view.width.height.equalTo(150)
             view.top.equalToSuperview().offset(10)
         })
-      
+        
         // UserName TextField
         usernameTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(logo.snp.bottom).offset(40)
@@ -47,7 +47,7 @@ class LogInViewController: UIViewController {
             view.width.equalToSuperview().multipliedBy(0.8)
             view.height.equalTo(44)
         })
-      
+        
         //Password TextField
         passwordTextField.snp.makeConstraints({ (view) in
             view.top.equalTo(usernameTextField.snp.bottom).offset(20)
@@ -81,9 +81,9 @@ class LogInViewController: UIViewController {
     }
     
     internal func tappedLoginButton(sender: UIButton) {
-
+        
         print("Log In Pressed IMPORT FIREBASE AND STUFF")
- 
+        
         guard let userName = usernameTextField.text, let password = passwordTextField.text else {
             print("cannot validate username/password")
             return
@@ -105,7 +105,7 @@ class LogInViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         })
-
+        
     }
     
     internal func tappedRegisterButton(sender: UIButton) {
@@ -149,7 +149,7 @@ class LogInViewController: UIViewController {
     
     internal lazy var usernameTextField: UITextField = {
         let textField = UITextField()
-
+        
         textField.textColor = EyeVoteColor.textIconColor
         textField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName : EyeVoteColor.accentColor ])
         textField.layer.borderColor = UIColor.black.cgColor
@@ -159,7 +159,7 @@ class LogInViewController: UIViewController {
     
     internal lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-
+        
         textField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName : EyeVoteColor.accentColor ])
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 5
