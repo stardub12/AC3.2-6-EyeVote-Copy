@@ -28,6 +28,7 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.view.addSubview(passwordTextField)
         self.view.addSubview(loginButton)
         self.view.addSubview(registerButton)
+        self.view.addSubview(imageButton)
     }
     
     private func configureConstraints(){
@@ -84,6 +85,8 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         registerButton.addTarget(self, action: #selector(tappedRegisterButton(sender:)), for: .touchUpInside)
         
         loginButton.addTarget(self, action: #selector(tappedLoginButton(sender:)), for: .touchUpInside)
+        
+         imageButton.addTarget(self, action: #selector(handleImageButton), for: .touchUpInside)
     }
     
     internal func tappedLoginButton(sender: UIButton) {
@@ -165,8 +168,9 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
-    func handleButton(sender: UIButton) {
+    internal func handleImageButton() {
             let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
             picker.delegate = self
             picker.allowsEditing = true
             present(picker, animated: true, completion: nil)
