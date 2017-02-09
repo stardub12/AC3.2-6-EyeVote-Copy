@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PhotoInfo: NSObject {
+class User: NSObject {
     var name: String?
     var email: String?
     var imagePath: String?

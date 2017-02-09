@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import Firebase
 
+//Note - Need to work on login storage
+
 class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - View Lifecycle
@@ -139,7 +141,7 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 storageRef.put(dataUpload, metadata: nil, completion: { (metadata, error) in
                     
                     if error != nil {
-                        print(error)
+                        print(error!)
                         return
                     }
                     
@@ -153,7 +155,7 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
                             }
                             
                             
-                            if let user = user {
+                            if user == nil {
                                 let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                                 let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                                 alert.addAction(ok)
@@ -166,7 +168,22 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         })
     }
     
-    
+    internal func registerWithUID(_ uid: String, login: [String: Any]) {
+        let reference = FIRDatabase.database().reference(fromURL: "https://eyevote-3f1e8.firebaseio.com/")
+        let userRef = reference.child("users").child(uid)
+        
+        userRef.updateChildValues(login, withCompletionBlock: { (error, reference) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            let user = User()
+            user.email = login["userName"] as? String
+            user.imagePath = login["imagePath"] as? String
+            
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
     
     internal func handleImageButton() {
             let picker = UIImagePickerController()
@@ -181,9 +198,7 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         var imagePicker: UIImage?
         
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-            imagePicker = editedImage
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+        if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             
             imagePicker = originalImage
         }

@@ -14,7 +14,7 @@ private let reuseIdentifier = "Cell"
 
 class GalleryCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
-    var photoInfo = [PhotoInfo]()
+    var photoInfo = [User]()
     
     var collectionView: UICollectionView!
     
@@ -37,7 +37,7 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDelegat
     func fetchPhotos() {
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             if let dict = snapshot.value as? [String: AnyObject] {
-                let photo = PhotoInfo()
+                let photo = User()
                 photo.setValuesForKeys(dict)
                 self.photoInfo.append(photo)
                 
@@ -56,9 +56,7 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         cell.backgroundColor = .white
         
-//        if let userPhotos = photoInfo.imagePath {
-//            cell.loadImagesWithCache(userPhotos)
-//        }
+       
         
         return cell
     }

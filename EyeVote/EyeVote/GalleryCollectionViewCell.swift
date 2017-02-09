@@ -18,6 +18,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         contentView.addSubview(imageView)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
