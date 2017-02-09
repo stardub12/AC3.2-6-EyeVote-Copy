@@ -88,13 +88,11 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         loginButton.addTarget(self, action: #selector(tappedLoginButton(sender:)), for: .touchUpInside)
         
-         imageButton.addTarget(self, action: #selector(handleImageButton), for: .touchUpInside)
+        imageButton.addTarget(self, action: #selector(handleImageButton), for: .touchUpInside)
     }
     
     internal func tappedLoginButton(sender: UIButton) {
-        
         print("Log In Pressed IMPORT FIREBASE AND STUFF")
-        
         guard let userName = usernameTextField.text, let password = passwordTextField.text else {
             print("cannot validate username/password")
             return
@@ -129,16 +127,12 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         FIRAuth.auth()?.createUser(withEmail: userName, password: password, completion: { (user: FIRUser?, error) in
             
             guard let uid = user?.uid else { return }
-            
-            let reference = FIRDatabase.database().reference(fromURL: "https://eyevote-3f1e8.firebaseio.com/")
-            let userReference = reference.child("users").child(uid)
-            
+            //image storage reference
             let imageName = NSUUID().uuidString
-            let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(imageName).jpg")
+            let reference = FIRStorage.storage().reference().child("profile_images").child("\(imageName).jpg")
             
             if let profilePic = self.logo.image, let dataUpload = UIImageJPEGRepresentation(profilePic, 0.1) {
-                
-                storageRef.put(dataUpload, metadata: nil, completion: { (metadata, error) in
+                reference.put(dataUpload, metadata: nil, completion: { (metadata, error) in
                     
                     if error != nil {
                         print(error!)
@@ -147,21 +141,15 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     
                     if let profilePath = metadata?.downloadURL()?.absoluteString {
                         let login = ["userName": userName, "password": password, "profilePath": profilePath]
-                        userReference.updateChildValues(login, withCompletionBlock: { (error, reference) in
-                            
-                            guard let error = error else {
-                                print("Error detected")
-                                return
-                            }
-                            
-                            
-                            if user == nil {
-                                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                                let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                                alert.addAction(ok)
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                        })
+                        
+                        self.registerWithUID(uid, login: login)
+                        
+                        if user == nil {
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alert.addAction(ok)
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
                 })
             }
@@ -178,20 +166,21 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 return
             }
             let user = User()
-            user.email = login["userName"] as? String
-            user.imagePath = login["imagePath"] as? String
+//            user.userName = login["userName"] as? String
+//            user.imagePath = login["imagePath"] as? String
+            user.setValuesForKeys(login)
             
             self.dismiss(animated: true, completion: nil)
         })
     }
     
     internal func handleImageButton() {
-            let picker = UIImagePickerController()
-            picker.sourceType = .photoLibrary
-            picker.delegate = self
-            picker.allowsEditing = true
-            present(picker, animated: true, completion: nil)
-
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -216,7 +205,7 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
         dismiss(animated: true, completion: nil)
     }
     
-
+    
     
     // MARK: - Lazy Init
     internal lazy var logo: UIImageView = {
@@ -226,7 +215,7 @@ class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }()
     
     internal lazy var imageButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.backgroundColor = UIColor.clear
         return button
     }()
