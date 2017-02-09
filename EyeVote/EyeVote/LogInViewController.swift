@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Firebase
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -39,6 +39,12 @@ class LogInViewController: UIViewController {
             view.width.height.equalTo(150)
             view.top.equalToSuperview().offset(10)
         })
+        
+        //Logo Button
+        imageButton.snp.makeConstraints { (view) in
+            view.centerX.equalTo(logo)
+            view.width.height.equalTo(logo)
+        }
         
         // UserName TextField
         usernameTextField.snp.makeConstraints({ (view) in
@@ -121,24 +127,77 @@ class LogInViewController: UIViewController {
             
             let reference = FIRDatabase.database().reference(fromURL: "https://eyevote-3f1e8.firebaseio.com/")
             let userReference = reference.child("users").child(uid)
-            let login = ["userName": userName, "password": password]
-            userReference.updateChildValues(login, withCompletionBlock: { (error, reference) in
+            
+            let imageName = NSUUID().uuidString
+            let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(imageName).jpg")
+            
+            if let profilePic = self.logo.image, let dataUpload = UIImageJPEGRepresentation(profilePic, 0.1) {
                 
-                guard let error = error else {
-                    print("Error detected")
-                    return
-                }
-                if let user = user {
-                    print("Got \(user.email)")
-                } else {
-                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            })
+                storageRef.put(dataUpload, metadata: nil, completion: { (metadata, error) in
+                    
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    
+                    if let profilePath = metadata?.downloadURL()?.absoluteString {
+                        let login = ["userName": userName, "password": password, "profilePath": profilePath]
+                        userReference.updateChildValues(login, withCompletionBlock: { (error, reference) in
+                            
+                            guard let error = error else {
+                                print("Error detected")
+                                return
+                            }
+                            
+                            
+                            if let user = user {
+                                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                                let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                alert.addAction(ok)
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                        })
+                    }
+                })
+            }
         })
     }
+    
+    
+    
+    func handleButton(sender: UIButton) {
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            present(picker, animated: true, completion: nil)
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var imagePicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            imagePicker = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            
+            imagePicker = originalImage
+        }
+        
+        if let selectedImage = imagePicker {
+            logo.image = selectedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("canceled picker")
+        dismiss(animated: true, completion: nil)
+    }
+    
+
     
     // MARK: - Lazy Init
     internal lazy var logo: UIImageView = {
@@ -146,6 +205,13 @@ class LogInViewController: UIViewController {
         imageView.image = #imageLiteral(resourceName: "logo")
         return imageView
     }()
+    
+    internal lazy var imageButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
     
     internal lazy var usernameTextField: UITextField = {
         let textField = UITextField()

@@ -14,6 +14,8 @@ private let reuseIdentifier = "Cell"
 
 class GalleryCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
+    var photoInfo = [PhotoInfo]()
+    
     var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -28,6 +30,22 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDelegat
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = EyeVoteColor.primaryColor
         self.view.addSubview(collectionView)
+        
+        fetchPhotos()
+    }
+    
+    func fetchPhotos() {
+        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: AnyObject] {
+                let photo = PhotoInfo()
+                photo.setValuesForKeys(dict)
+                self.photoInfo.append(photo)
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }, withCancel: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -37,6 +55,11 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         cell.backgroundColor = .white
+        
+//        if let userPhotos = photoInfo.imagePath {
+//            cell.loadImagesWithCache(userPhotos)
+//        }
+        
         return cell
     }
     

@@ -21,7 +21,7 @@
 		7DF6D43D1E4B9CD800B930BF /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6D43A1E4B9CD800B930BF /* ProfileTableViewCell.swift */; };
 		7DF6D43E1E4B9CD800B930BF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6D43B1E4B9CD800B930BF /* ProfileViewController.swift */; };
 		7DF6D43F1E4B9CD800B930BF /* UploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6D43C1E4B9CD800B930BF /* UploadCollectionViewCell.swift */; };
-		7DF6D4411E4B9CE200B930BF /* Extension-CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6D4401E4B9CE200B930BF /* Extension-CustomColors.swift */; };
+		7DF6D4411E4B9CE200B930BF /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6D4401E4B9CE200B930BF /* PhotoInfo.swift */; };
 		7DF6D4431E4B9DAA00B930BF /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6D4421E4B9DAA00B930BF /* GalleryCollectionViewCell.swift */; };
 		A3A6CA13EF767AE3AF4D4D12 /* Pods_EyeVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E604791D0468581F58FE13EC /* Pods_EyeVote.framework */; };
 		DF1F0AC81E49228A005EEE9C /* EyeVoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */; };
@@ -43,7 +43,7 @@
 		7DF6D43A1E4B9CD800B930BF /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		7DF6D43B1E4B9CD800B930BF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7DF6D43C1E4B9CD800B930BF /* UploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadCollectionViewCell.swift; sourceTree = "<group>"; };
-		7DF6D4401E4B9CE200B930BF /* Extension-CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension-CustomColors.swift"; sourceTree = "<group>"; };
+		7DF6D4401E4B9CE200B930BF /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		7DF6D4421E4B9DAA00B930BF /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D881F1A7352DF6BAF815CBC2 /* Pods-EyeVote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeVote.release.xcconfig"; path = "Pods/Target Support Files/Pods-EyeVote/Pods-EyeVote.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeVoteColor.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DF1F0AC71E49228A005EEE9C /* EyeVoteColor.swift */,
-				7DF6D4401E4B9CE200B930BF /* Extension-CustomColors.swift */,
+				7DF6D4401E4B9CE200B930BF /* PhotoInfo.swift */,
 				7DF6D41A1E4B145400B930BF /* ImageView.swift */,
 			);
 			name = UI;
@@ -293,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DF6D4411E4B9CE200B930BF /* Extension-CustomColors.swift in Sources */,
+				7DF6D4411E4B9CE200B930BF /* PhotoInfo.swift in Sources */,
 				5736C97F1E48F57F00B22B11 /* GalleryTableViewCell.swift in Sources */,
 				5736C9871E492B3300B22B11 /* GalleryCollectionViewController.swift in Sources */,
 				5736C9891E492B5F00B22B11 /* GalleryDetailViewController.swift in Sources */,
